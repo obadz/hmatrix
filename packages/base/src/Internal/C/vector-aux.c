@@ -965,14 +965,7 @@ inline double urandom() {
 
 #define _CRT_RAND_S
 inline double urandom() {
-    unsigned int number;
-    errno_t err;
-    err = rand_s(&number);
-    if (err!=0) {
-        printf("something wrong\n");
-        return -1;
-    }
-    return (double)number / (double)UINT_MAX;
+    return (double)rand() / (double)RAND_MAX;
 }
 
 #endif
